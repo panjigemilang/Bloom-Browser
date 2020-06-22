@@ -1,10 +1,10 @@
 import React, { lazy, Suspense } from "react"
 import "./App.css"
-import { Route, BrowserRouter as Router, Switch } from "react-router-dom"
+import { Route, BrowserRouter as Router } from "react-router-dom"
 import { ThemeProvider } from "styled-components"
 
 // Utils
-import { lightTheme, darkTheme } from "./Components/utils/Styled"
+import { lightTheme } from "./Components/utils/Styled"
 import { GlobalStyles } from "./Components/utils/GlobalStyles"
 import Loading from "./Components/utils/Loading"
 

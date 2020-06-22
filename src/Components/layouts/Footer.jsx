@@ -13,11 +13,11 @@ const TextContainer = styled.div`
   }
 `
 
-const Row = styled.div`
-  display: -ms-flexbox;
-  display: flex;
-  flex-flow: row wrap;
-`
+// const Row = styled.div`
+//   display: -ms-flexbox;
+//   display: flex;
+//   flex-flow: row wrap;
+// `
 
 const Ul = styled.ul`
   display: flex;
