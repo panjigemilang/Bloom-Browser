@@ -18,6 +18,7 @@ export const ContentBox = styled.div`
   padding: ${({ padding }) => padding};
 
   @media (max-width: 600px) {
+    margin: ${({ mmargin }) => (mmargin ? 0 : "20vh 0")};
     flex-direction: column;
   }
 `
@@ -76,6 +77,12 @@ export const Section = styled.section`
   margin: ${({ margin }) => margin};
   min-height: 100vh;
   position: relative;
+  overflow: hidden;
+
+  @media (max-width: 600px) {
+    margin: ${({ mmargin }) => mmargin};
+    min-height: 80vh;
+  }
 `
 
 export const lightTheme = {

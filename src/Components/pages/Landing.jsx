@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import IndexContext from "../../Context/IndexContext"
 import styled from "styled-components"
 import {
   Button,
@@ -24,6 +25,15 @@ import Phone from "../../Assets/vector/Phone.svg"
 import GooglePlayButton from "../../Assets/vector/Google-Play-Button.png"
 import AppStoreButton from "../../Assets/vector/App-Store-Button.png"
 
+const App = styled.div`
+  filter: ${({ blur }) => blur};
+  -webkit-filter: ${({ blur }) => blur};
+  -webkit-transition: 0.7s ease-in-out;
+  -moz-transition: 0.7s ease-in-out;
+  -o-transition: 0.7s ease-in-out;
+  transition: 0.7s ease-in-out;
+`
+
 const TextContainer = styled.div`
   flex-grow: 1;
   margin: ${({ margin }) => margin};
@@ -33,7 +43,11 @@ const TextContainer = styled.div`
 
   @media (max-width: 600px) {
     order: ${({ order }) => order};
-    padding: 0 8vw;
+    padding: ${({ mpadding }) => (mpadding ? mpadding : "0 8vw")};
+
+    h2 {
+      font-size: 1.17em;
+    }
   }
 `
 
@@ -59,6 +73,11 @@ const Title = styled.h1`
   color: ${({ color }) => color};
   font-weight: 100;
   font-size: ${({ fontSize }) => (fontSize ? fontSize : "3em")};
+
+  @media (max-width: 600px) {
+    font-size: ${({ fontSize }) =>
+      fontSize ? `calc(${fontSize}-${fontSize}/2)` : "2em"};
+  }
 `
 
 const Description = styled.p`
@@ -72,10 +91,12 @@ const Description = styled.p`
 `
 
 export default class Landing extends Component {
+  static contextType = IndexContext
+
   render() {
     return (
-      <div style={{ overflowX: "hidden" }}>
-        <Section>
+      <App blur={this.context.toggleSide ? "blur(8px)" : null} className="app">
+        <Section mmargin="10vh 0px 5vh">
           <Particles src={IconLeft} left="0" />
           <Particles display="none" src={IconRight} right="0" />
           <Particles
@@ -252,7 +273,7 @@ export default class Landing extends Component {
           </Container>
         </Section>
         <Section margin="15px 0">
-          <ContentBox backgroundColor="var(--primary)">
+          <ContentBox backgroundColor="var(--blue-light)" mmargin="true">
             <TextContainer margin="6vh" padding="0 20vw" textAlign="justify">
               <Title>Try Bloom Browser on Your Smartphone</Title>
               <Description margin="0" width="100% ">
@@ -261,7 +282,7 @@ export default class Landing extends Component {
                 text ever since the 1500s, when an unknown printer took a galley
                 of type and scrambled it to make a type specimen book. It has
               </Description>
-              <TextContainer textAlign="left">
+              <TextContainer mpadding="0" textAlign="left">
                 <h2>Download App Now?</h2>
                 <ImageContainer
                   cursor="pointer"
@@ -292,7 +313,7 @@ export default class Landing extends Component {
             </ImageContainer>
           </ContentBox>
         </Section>
-      </div>
+      </App>
     )
   }
 }

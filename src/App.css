@@ -5,3 +5,34 @@
   src: local("Product Sans"),
     url(./Assets/fonts/Product-Sans-Italic.ttf) format("truetype");
 }
+
+.app {
+  overflow-x: hidden;
+}
+
+/* :: Open CSS :: */
+.main.open {
+  margin-left: 200px !important;
+  overflow: hidden;
+}
+
+.animated-icon1.open {
+  top: 21px !important;
+  -webkit-transform: rotate(135deg);
+  -moz-transform: rotate(135deg);
+  -o-transform: rotate(135deg);
+  transform: rotate(135deg);
+}
+
+.animated-icon2.open {
+  opacity: 0;
+  left: -60px;
+}
+
+.animated-icon3.open {
+  top: 21px !important;
+  -webkit-transform: rotate(-135deg);
+  -moz-transform: rotate(-135deg);
+  -o-transform: rotate(-135deg);
+  transform: rotate(-135deg);
+}
