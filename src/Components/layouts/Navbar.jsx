@@ -42,7 +42,12 @@ const LogoContainer = styled.img`
 `
 
 const LogoTitle = styled.h3`
+  line-height: 50px;
   margin-left: 15px;
+
+  @media (max-width: 600px) {
+    margin: 0 15px;
+  }
 `
 
 // Nav Button
@@ -129,10 +134,11 @@ const SideNav = styled.div`
   margin: 7vh 0;
   min-height: 100vh;
   position: fixed;
-  width: ${({ show }) => (show ? "100%" : 0)};
   opacity: 0.8;
-  white-space: nowrap;
   overflow: hidden;
+  transform: ${({ show }) => (show ? null : "translateX(-100vw)")};
+  white-space: nowrap;
+  width: 100%;
   z-index: 9998;
   -webkit-transition: 0.7s ease-in-out;
   -moz-transition: 0.7s ease-in-out;
@@ -170,10 +176,15 @@ const SideNav = styled.div`
   }
 
   li:nth-child(1) {
-    line-height: 50px;
+    margin-bottom: 15px;
+    padding-top: 5vh;
+
+    h3 {
+      line-height: 70px;
+    }
   }
 
-  li:hover {
+  li:not(:nth-child(1)):hover {
     background-color: var(--gray);
     color: white;
   }

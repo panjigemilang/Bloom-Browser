@@ -20,7 +20,7 @@ import Browser from "../../Assets/vector/Browser.svg"
 import OpenSource from "../../Assets/vector/Open-Source.svg"
 import AdsBlocker from "../../Assets/vector/Ads-Blocker.svg"
 import Charity from "../../Assets/vector/Charity.svg"
-import Favorite from "../../Assets/vector/Favorite.svg"
+// import Favorite from "../../Assets/vector/Favorite.svg"
 import Phone from "../../Assets/vector/Phone.svg"
 import GooglePlayButton from "../../Assets/vector/Google-Play-Button.png"
 import AppStoreButton from "../../Assets/vector/App-Store-Button.png"
@@ -65,6 +65,7 @@ const Particles = styled.img`
 
   @media (max-width: 600px) {
     display: ${({ display }) => display};
+    opacity: ${({ opacity }) => opacity};
     width: ${({ width }) => `calc(${width} + 20%)`};
   }
 `
@@ -101,18 +102,28 @@ export default class Landing extends Component {
           <Particles display="none" src={IconRight} right="0" />
           <Particles
             src={Section_1}
-            bottom="0"
+            bottom="-5%"
             left="50%"
+            opacity=".7"
             transform="translate(-50%, 0)"
             width="50%"
           />
           <Container>
             <TextContainer>
-              <Title>Save life by Search.</Title>
+              <Title>Search. Inspire. Save Lives.</Title>
               <Description>
-                We are helping people out there who are affected by covid-19
-                from advertisements on this browser by building various health
-                facilities, medicines and food aid for thos in need.
+                Make Bloom your new search engine and donate to charity with
+                your searches - for free!
+                <br />
+                <br />
+                Bloom is a free, fast, open - source, web browser. It blocks ads
+                and website trackers, and provides a way for users to customize
+                their search experience with images that inspire from content
+                creators.
+                <br />
+                <br />
+                Users decide what - if any - promoted content they elect to see
+                and ad revenue goes to charity.
               </Description>
               <Button
                 backgroundColor="#fff"
@@ -144,16 +155,14 @@ export default class Landing extends Component {
                 />
                 <Title>Browser</Title>
                 <Description margin="0" width="100%">
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text ever since the 1500s, when an unknown
-                  printer took a galley of type and scrambled it to make a type
-                  specimen book. It has survived not only five centuries, but
-                  also the leap into electronic typesetting, remaining
-                  essentially unchanged. It was popularised in the 1960s with
-                  the release of Letraset sheets containing Lorem Ipsum
-                  passages, and more recently with desktop publishing software
-                  like Aldus PageMaker including versions of Lorem Ipsum.
+                  &emsp;Bloom is a free and open-source web browser based on the
+                  Chromium web browser. It blocks ads and website trackers, and
+                  provides a way for users to earn and donate to charity by
+                  simply simply using Bloom like any other browser. Users can
+                  block all ads, or replace ads with custom inspiration content
+                  they create or from other content creators. User choose what -
+                  if any - promoted content they see and share in the revenue
+                  generated from private promoted content.
                 </Description>
               </TextContainer>
               <ImageContainer>
@@ -167,16 +176,12 @@ export default class Landing extends Component {
               <TextContainer padding="0 8vw 0 5vw" textAlign="justify">
                 <Title>Open Source</Title>
                 <Description margin="0" width="100% ">
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text ever since the 1500s, when an unknown
-                  printer took a galley of type and scrambled it to make a type
-                  specimen book. It has survived not only five centuries, but
-                  also the leap into electronic typesetting, remaining
-                  essentially unchanged. It was popularised in the 1960s with
-                  the release of Letraset sheets containing Lorem Ipsum
-                  passages, and more recently with desktop publishing software
-                  like Aldus PageMaker including versions of Lorem Ipsum.
+                  &emsp;Let’s make things better together! Bloom is an
+                  open-source browser project that aims to build a safer,
+                  faster, and more fair way for all users to experience the web.
+                  View and share design documents, architecture overviews,
+                  testing information, and more to help our community build and
+                  improve the Bloom source code.
                 </Description>
               </TextContainer>
             </ContentBox>
@@ -194,16 +199,32 @@ export default class Landing extends Component {
               >
                 <Title>3rd Party Ads Blocker</Title>
                 <Description margin="0" width="100% ">
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text ever since the 1500s, when an unknown
-                  printer took a galley of type and scrambled it to make a type
-                  specimen book. It has survived not only five centuries, but
-                  also the leap into electronic typesetting, remaining
-                  essentially unchanged. It was popularised in the 1960s with
-                  the release of Letraset sheets containing Lorem Ipsum
-                  passages, and more recently with desktop publishing software
-                  like Aldus PageMaker including versions of Lorem Ipsum.
+                  &emsp;Bloom is a 3rd party ad blocker. It’s our top priority.
+                  Bloom fights malware and prevents tracking, keeping your
+                  information safe and secure.
+                  <br />
+                  <br />
+                  <strong>We’re not in the personal data business</strong>
+                  <br />
+                  <br />
+                  &emsp;Our servers neither see nor store your browsing data –
+                  it stays private, on your devices, until you delete it. Which
+                  means we won’t ever sell your data to third parties.
+                  <br />
+                  <br />
+                  <strong>Customize your shield settings</strong>
+                  <br />
+                  <br />
+                  &emsp;Want to block ads? See how many ads and trackers are
+                  being blocked by Bloom every day on the New Tab Page. You have
+                  control. See no 3rd party ads. Or, see personal custom content
+                  you create. Or, see custom content from other creators that
+                  inspire you. Or, turn on Bloom Rewards and give a little back
+                  to charities you care about most. Earn money for viewing
+                  privacy-respecting promoted content you choose through Bloom
+                  and help fund the charities you love. Browsing the web with
+                  Bloom is FREE: with Bloom Rewards activated, you support the
+                  causes you love.
                 </Description>
               </TextContainer>
               <ImageContainer>
@@ -219,56 +240,17 @@ export default class Landing extends Component {
               <ImageContainer>
                 <img src={Charity} alt="Charity.svg" />
               </ImageContainer>
-              <TextContainer padding="0 8vw 0 5vw" textAlign="justify">
+              <TextContainer padding="0 8vw 0 5vw" textAlign="left">
                 <Title>Non-Profit, Focus on Charity</Title>
                 <Description margin="0" width="100% ">
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text ever since the 1500s, when an unknown
-                  printer took a galley of type and scrambled it to make a type
-                  specimen book. It has survived not only five centuries, but
-                  also the leap into electronic typesetting, remaining
-                  essentially unchanged. It was popularised in the 1960s with
-                  the release of Letraset sheets containing Lorem Ipsum
-                  passages, and more recently with desktop publishing software
-                  like Aldus PageMaker including versions of Lorem Ipsum.
+                  Let’s do some good. Together!
+                  <br />
+                  &emsp;We use the money your searches generate and instead of
+                  it going to corporate share holders, we give it to charities
+                  you care about. Use Bloom for FREE and see how much your
+                  searches generate for charity.
                 </Description>
               </TextContainer>
-            </ContentBox>
-            <ContentBox>
-              <TextContainer
-                order="2"
-                padding="0 5vw 0 8vw"
-                textAlign="justify"
-              >
-                <Particles
-                  src={DotsParticlesBottom}
-                  transform="translateY(-12vh)"
-                  width="7em"
-                />
-                <Title>User Favorite</Title>
-                <Description margin="0" width="100% ">
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text ever since the 1500s, when an unknown
-                  printer took a galley of type and scrambled it to make a type
-                  specimen book. It has survived not only five centuries, but
-                  also the leap into electronic typesetting, remaining
-                  essentially unchanged. It was popularised in the 1960s with
-                  the release of Letraset sheets containing Lorem Ipsum
-                  passages, and more recently with desktop publishing software
-                  like Aldus PageMaker including versions of Lorem Ipsum.
-                </Description>
-              </TextContainer>
-              <Particles
-                src={Circle}
-                right="0"
-                transform="translate(7vw, -20vh)"
-                width="12em"
-              />
-              <ImageContainer>
-                <img src={Favorite} alt="Favorite.svg" />
-              </ImageContainer>
             </ContentBox>
           </Container>
         </Section>
@@ -277,10 +259,9 @@ export default class Landing extends Component {
             <TextContainer margin="6vh" padding="0 20vw" textAlign="justify">
               <Title>Try Bloom Browser on Your Smartphone</Title>
               <Description margin="0" width="100% ">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled it to make a type specimen book. It has
+                What are you waiting for?
+                <br />
+                Let's be a part of the happiness!
               </Description>
               <TextContainer mpadding="0" textAlign="left">
                 <h2>Download App Now?</h2>
