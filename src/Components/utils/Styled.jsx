@@ -13,13 +13,20 @@ export const Button = styled.button`
 export const ContentBox = styled.div`
   background-color: ${({ backgroundColor }) => backgroundColor};
   border-top: ${({ borderTop }) => borderTop};
-  display: flex;
-  margin: ${({ margin }) => (margin ? margin : "20vh 0")};
+  display: ${({ display }) => (display ? display : "flex")};
+  grid-template-columns: ${({ gridColumns }) => gridColumns};
+
+  margin: ${({ margin }) => (margin ? margin : "15vh 0")};
   padding: ${({ padding }) => padding};
 
   @media (max-width: 600px) {
-    margin: ${({ mmargin }) => (mmargin ? 0 : "20vh 0")};
+    margin: ${({ mmargin }) => (mmargin ? 0 : "15vh 0")};
     flex-direction: column;
+    grid-template-columns: 1fr;
+
+    h1 {
+      grid-column: unset !important;
+    }
   }
 `
 
@@ -75,7 +82,7 @@ export const Container = styled.div`
 
 export const Section = styled.section`
   margin: ${({ margin }) => margin};
-  min-height: 100vh;
+  min-height: 90vh;
   position: relative;
   overflow: hidden;
 

@@ -24,6 +24,9 @@ import Charity from "../../Assets/vector/Charity.svg"
 import Phone from "../../Assets/vector/Phone.svg"
 import GooglePlayButton from "../../Assets/vector/Google-Play-Button.png"
 import AppStoreButton from "../../Assets/vector/App-Store-Button.png"
+import StepOne from "../../Assets/vector/Step-One.svg"
+import StepTwo from "../../Assets/vector/Step-Two.svg"
+import StepThree from "../../Assets/vector/Step-Three.svg"
 
 const App = styled.div`
   filter: ${({ blur }) => blur};
@@ -35,13 +38,13 @@ const App = styled.div`
 `
 
 const TextContainer = styled.div`
-  flex-grow: 1;
   margin: ${({ margin }) => margin};
   position: relative;
   padding: ${({ padding }) => padding};
   text-align: ${({ textAlign }) => (textAlign ? textAlign : "center")};
 
   @media (max-width: 600px) {
+    margin: 5vw;
     order: ${({ order }) => order};
     padding: ${({ mpadding }) => (mpadding ? mpadding : "0 8vw")};
 
@@ -72,7 +75,7 @@ const Particles = styled.img`
 
 const Title = styled.h1`
   color: ${({ color }) => color};
-  font-weight: 100;
+  font-weight: ${({ fontWeight }) => (fontWeight ? fontWeight : "100")};
   font-size: ${({ fontSize }) => (fontSize ? fontSize : "3em")};
 
   @media (max-width: 600px) {
@@ -91,6 +94,14 @@ const Description = styled.p`
   }
 `
 
+const Div = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  &.item1 {
+  }
+`
+
 export default class Landing extends Component {
   static contextType = IndexContext
 
@@ -102,7 +113,7 @@ export default class Landing extends Component {
           <Particles display="none" src={IconRight} right="0" />
           <Particles
             src={Section_1}
-            bottom="-5%"
+            bottom="-10%"
             left="50%"
             opacity=".7"
             transform="translate(-50%, 0)"
@@ -110,7 +121,7 @@ export default class Landing extends Component {
           />
           <Container>
             <TextContainer>
-              <Title>Search. Inspire. Save Lives.</Title>
+              <Title fontWeight="500">Search. Inspire. Save Lives.</Title>
               <Description>
                 Make Bloom your new search engine and donate to charity with
                 your searches - for free!
@@ -142,7 +153,7 @@ export default class Landing extends Component {
         <Section margin="15px 0">
           <Particles src={DotsParticlesSide} right="0" width="9em" />
           <Container>
-            <ContentBox margin="25vh 0">
+            <ContentBox>
               <TextContainer
                 order="2"
                 padding="0 5vw 0 8vw"
@@ -252,16 +263,57 @@ export default class Landing extends Component {
                 </Description>
               </TextContainer>
             </ContentBox>
+            <ContentBox display="grid" gridColumns="repeat(3, 1fr)">
+              <Title style={{ gridColumn: "1 / span 3", textAlign: "center" }}>
+                How it Works
+              </Title>
+              <Div>
+                <ImageContainer imgWidth="15em" margin="0 auto">
+                  <img src={StepOne} alt="Google Play.png" />
+                </ImageContainer>
+                <TextContainer margin="20px">
+                  <Description margin="0" width="100% ">
+                    You search the web with Bloom Browser
+                  </Description>
+                </TextContainer>
+              </Div>
+              <Div>
+                <ImageContainer imgWidth="15em" margin="0 auto">
+                  <img src={StepTwo} alt="Google Play.png" />
+                </ImageContainer>
+                <TextContainer margin="20px">
+                  <Description margin="0" width="100% ">
+                    If you choose to see promoted content you choose, income is
+                    generated
+                  </Description>
+                </TextContainer>
+              </Div>
+              <Div>
+                <ImageContainer imgWidth="15em" margin="0 auto">
+                  <img src={StepThree} alt="Google Play.png" />
+                </ImageContainer>
+                <TextContainer margin="20px">
+                  <Description margin="0" width="100% ">
+                    Bloom donates this income to charity
+                  </Description>
+                </TextContainer>
+              </Div>
+            </ContentBox>
           </Container>
         </Section>
-        <Section margin="15px 0">
-          <ContentBox backgroundColor="var(--blue-light)" mmargin="true">
-            <TextContainer margin="6vh" padding="0 20vw" textAlign="justify">
-              <Title>Try Bloom Browser on Your Smartphone</Title>
-              <Description margin="0" width="100% ">
-                What are you waiting for?
-                <br />
-                Let's be a part of the happiness!
+        <Section margin="15px 0 0">
+          <ContentBox
+            backgroundColor="var(--blue-light)"
+            display="grid"
+            gridColumns="repeat(2, 50%)"
+            mmargin="true"
+          >
+            <TextContainer margin="6vh 6vh 6vh 15vw" textAlign="left">
+              <Title fontWeight="900">We know trust has to be earned</Title>
+              <Description margin="0" width="100%">
+                &ensp;That is why we publish our monthly financial reports and
+                charitable receipts. This way we are totally transparent with
+                the Bloom community and we do some good. Together!
               </Description>
               <TextContainer mpadding="0" textAlign="left">
                 <h2>Download App Now?</h2>
@@ -285,10 +337,9 @@ export default class Landing extends Component {
             <ImageContainer
               miniDisplay="none"
               position="absolute"
-              top="-4%"
-              right="50%"
+              top="-10%"
+              right="30%"
               imgWidth="18em"
-              width="100%"
             >
               <img src={Phone} alt="Phone.svg" />
             </ImageContainer>
