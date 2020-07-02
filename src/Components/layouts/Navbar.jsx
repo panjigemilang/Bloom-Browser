@@ -7,6 +7,9 @@ import { Container } from "../utils/Styled"
 
 const Nav = styled.nav`
   display: flex;
+  height: 50px;
+  /* height: -moz-fit-content; 
+  height: -webkit-fit-content; */
 
   @media (max-width: 600px) {
     display: none;
@@ -15,6 +18,9 @@ const Nav = styled.nav`
 
 const Ul = styled.ul`
   display: flex;
+  height: 50px;
+  /* height: -moz-fit-content; 
+  height: -webkit-fit-content; */
   margin-top: 20px;
   width: 100%;
 `
@@ -25,9 +31,9 @@ const Li = styled.li`
   color: ${({ color }) => color};
   cursor: pointer;
   display: ${({ display }) => display};
-  height: fit-content;
-  height: -moz-fit-content; /* Firefox/Gecko */
-  height: -webkit-fit-content; /* Chrome */
+  height: 50px;
+  /* height: -moz-fit-content; 
+  height: -webkit-fit-content; */
   list-style: none;
   margin-right: ${({ marginRight }) => (marginRight ? marginRight : "8%")};
   padding: ${({ padding }) => (padding ? padding : "15px 0")};
@@ -43,6 +49,7 @@ const LogoContainer = styled.img`
 
 const LogoTitle = styled.h3`
   line-height: 50px;
+  margin: 0;
   margin-left: 15px;
 
   @media (max-width: 600px) {

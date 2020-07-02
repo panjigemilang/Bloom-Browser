@@ -33,6 +33,7 @@ export const ContentBox = styled.div`
 export const ImageContainer = styled.div`
   cursor: ${({ cursor }) => cursor};
   display: ${({ display }) => display};
+  height: 50px;
   margin: ${({ margin }) => margin};
   position: relative;
   width: ${({ width }) => width};
