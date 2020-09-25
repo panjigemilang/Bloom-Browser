@@ -3,6 +3,7 @@ import IndexContext from "./Context/IndexContext"
 import "./App.css"
 import { Route, BrowserRouter as Router } from "react-router-dom"
 import { ThemeProvider } from "styled-components"
+import smoothscroll from "smoothscroll-polyfill"
 
 // Utils
 import { lightTheme } from "./Components/utils/Styled"
@@ -15,6 +16,9 @@ import Footer from "./Components/layouts/Footer"
 
 // Components
 const Landing = lazy(() => import("./Components/pages/Landing"))
+
+// kick off the polyfill!
+smoothscroll.polyfill()
 
 export default class App extends React.Component {
   state = {

@@ -1,5 +1,4 @@
 import React, { Component } from "react"
-import { Link } from "react-router-dom"
 import Index from "../../Context/IndexContext"
 import styled from "styled-components"
 import Logo from "../../Assets/vector/Logo.svg"
@@ -7,6 +6,11 @@ import { Container } from "../utils/Styled"
 
 const Nav = styled.nav`
   display: flex;
+  height: 50px;
+  position: relative;
+  z-index: 99;
+  /* height: -moz-fit-content; 
+  height: -webkit-fit-content; */
 
   @media (max-width: 600px) {
     display: none;
@@ -15,6 +19,9 @@ const Nav = styled.nav`
 
 const Ul = styled.ul`
   display: flex;
+  height: 50px;
+  /* height: -moz-fit-content; 
+  height: -webkit-fit-content; */
   margin-top: 20px;
   width: 100%;
 `
@@ -25,9 +32,9 @@ const Li = styled.li`
   color: ${({ color }) => color};
   cursor: pointer;
   display: ${({ display }) => display};
-  height: fit-content;
-  height: -moz-fit-content; /* Firefox/Gecko */
-  height: -webkit-fit-content; /* Chrome */
+  height: 50px;
+  /* height: -moz-fit-content; 
+  height: -webkit-fit-content; */
   list-style: none;
   margin-right: ${({ marginRight }) => (marginRight ? marginRight : "8%")};
   padding: ${({ padding }) => (padding ? padding : "15px 0")};
@@ -43,6 +50,7 @@ const LogoContainer = styled.img`
 
 const LogoTitle = styled.h3`
   line-height: 50px;
+  margin: 0;
   margin-left: 15px;
 
   @media (max-width: 600px) {
@@ -158,6 +166,11 @@ const SideNav = styled.div`
     list-style: none;
   }
 
+  li,
+  a {
+    line-height: 100px;
+  }
+
   li {
     display: flex;
     font-size: 1.17em;
@@ -170,7 +183,6 @@ const SideNav = styled.div`
 
     a {
       color: var(--primary);
-      line-height: 100px;
       text-decoration: none;
     }
   }
@@ -203,6 +215,24 @@ export default class Navbar extends Component {
     })
   }
 
+  scrollToElements = (element, media = "desktop") => {
+    let dom, y, yOffset
+
+    if (media === "mobile") {
+      yOffset = -50
+      this.context.toggleSideNav()
+    }
+
+    const scrollTo = (dom, yOffset) => {
+      y = dom.getBoundingClientRect().top + window.pageYOffset + yOffset
+
+      window.scrollTo({ top: y, behavior: "smooth" })
+    }
+
+    dom = document.querySelector(`#${element}`)
+    return scrollTo(dom, yOffset)
+  }
+
   render() {
     return (
       <div>
@@ -213,9 +243,21 @@ export default class Navbar extends Component {
                 <LogoContainer src={Logo} alt="Logo" />
                 <LogoTitle>BLOOM</LogoTitle>
               </Li>
-              <Li>Download App</Li>
-              <Li>Features</Li>
-              <Li>About us</Li>
+              <Li>
+                <a
+                  href="https://s3.amazonaws.com/download.bloombrowser.com/BloomBrowser.apk"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Download App
+                </a>
+              </Li>
+              <Li onClick={() => this.scrollToElements("features")}>
+                Features
+              </Li>
+              <Li onClick={() => this.scrollToElements("about-us")}>
+                About us
+              </Li>
               <Li
                 backgroundColor="var(--green-light)"
                 borderRadius="2em"
@@ -223,7 +265,13 @@ export default class Navbar extends Component {
                 marginRight="0"
                 padding="15px 30px"
               >
-                Download
+                <a
+                  href="https://s3.amazonaws.com/download.bloombrowser.com/BloomBrowser.apk"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Download
+                </a>
               </Li>
             </Ul>
           </Nav>
@@ -270,16 +318,19 @@ export default class Navbar extends Component {
               <LogoTitle>BLOOM</LogoTitle>
             </li>
             <li>
-              <Link to="/#">Download App</Link>
+              <a
+                href="https://s3.amazonaws.com/download.bloombrowser.com/BloomBrowser.apk"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Download App
+              </a>
             </li>
-            <li>
-              <Link to="/#">Features</Link>
+            <li onClick={() => this.scrollToElements("features", "mobile")}>
+              Features
             </li>
-            <li>
-              <Link to="/#">About Us</Link>
-            </li>
-            <li>
-              <Link to="/#">Download</Link>
+            <li onClick={() => this.scrollToElements("about-us", "mobile")}>
+              About Us
             </li>
           </ul>
         </SideNav>
