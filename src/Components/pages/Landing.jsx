@@ -23,7 +23,6 @@ import Charity from "../../Assets/vector/Charity.svg"
 // import Favorite from "../../Assets/vector/Favorite.svg"
 import Phone from "../../Assets/vector/Phone.svg"
 import GooglePlayButton from "../../Assets/vector/Google-Play-Button.png"
-import AppStoreButton from "../../Assets/vector/App-Store-Button.png"
 import StepOne from "../../Assets/vector/Step-One.svg"
 import StepTwo from "../../Assets/vector/Step-Two.svg"
 import StepThree from "../../Assets/vector/Step-Three.svg"
@@ -108,7 +107,7 @@ export default class Landing extends Component {
   render() {
     return (
       <App blur={this.context.toggleSide ? "blur(8px)" : null} className="app">
-        <Section mmargin="10vh 0px 5vh">
+        <Section mmargin="10vh 0px 5vh" id="home">
           <Particles src={IconLeft} left="0" />
           <Particles display="none" src={IconRight} right="0" />
           <Particles
@@ -144,13 +143,19 @@ export default class Landing extends Component {
                 margin="6vh 0"
                 padding="10px 20px"
               >
-                <i className="fa fa-download" aria-hidden="true"></i>
-                &ensp;Download Bloom on Mac OS
+                <a
+                  href="https://s3.amazonaws.com/download.bloombrowser.com/BloomBrowser.apk"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <i className="fa fa-download" aria-hidden="true"></i>
+                  &ensp;Download Bloom
+                </a>
               </Button>
             </TextContainer>
           </Container>
         </Section>
-        <Section margin="15px 0">
+        <Section margin="15px 0" id="features">
           <Particles src={DotsParticlesSide} right="0" width="9em" />
           <Container>
             <ContentBox>
@@ -301,7 +306,7 @@ export default class Landing extends Component {
             </ContentBox>
           </Container>
         </Section>
-        <Section margin="15px 0 0">
+        <Section margin="15px 0 0" id="about-us">
           <ContentBox
             backgroundColor="var(--blue-light)"
             display="grid"
@@ -323,14 +328,13 @@ export default class Landing extends Component {
                   imgWidth="8em"
                   margin="0 10px 0 0"
                 >
-                  <img src={GooglePlayButton} alt="Google Play.png" />
-                </ImageContainer>
-                <ImageContainer
-                  cursor="pointer"
-                  display="inline-block"
-                  imgWidth="8em"
-                >
-                  <img src={AppStoreButton} alt="Apps Store.png" />
+                  <a
+                    href="https://s3.amazonaws.com/download.bloombrowser.com/BloomBrowser.apk"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <img src={GooglePlayButton} alt="Google Play.png" />
+                  </a>
                 </ImageContainer>
               </TextContainer>
             </TextContainer>

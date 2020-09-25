@@ -41,7 +41,12 @@ export default function Footer() {
           margin="0"
           padding="5vh 5vw"
         >
-          <ImageContainer display="flex" imgWidth="9em" width="40%">
+          <ImageContainer
+            display="flex"
+            height="50px"
+            imgWidth="9em"
+            width="40%"
+          >
             <img src={Logo} alt="Logo.png" />
           </ImageContainer>
           <TextContainer>
